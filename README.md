@@ -13,3 +13,6 @@ As of today, I upload my hands-on work which will be referred to from time to ti
 
 20/8/23
 -New model, gas emissions per EU country. Will be updated for better validation results. The latest model(emissions.py) will merge with the scraping performed in ecp.py to produce comparative results based on the energy consumption and total greenhouse gas emissions. Breakthrough imminent!
+
+21/8/2023
+-Classification exercise with Iris.csv @ classification/.
