@@ -11,8 +11,11 @@ As of today, I upload my hands-on work which will be referred to from time to ti
 18/8/2023
 -I have extracted data from Eurostat in search of the energy consumption in the EU. With ecp.py I have tried to perform a calulcation of the squared root and the mean error to validate my predictions for the years 2022-2026. So far I have managed to plot the data that I have so far and train a model to make future predictions for up to 5 years using ARIMA and SARIMA respectfully. Even after plotting and graphing my findings, I need to update the code to make more valid predictions. In data/ you can find the test.csv that I have used to to extract the data. The ecp.py reads the .csv, asks for the user to select which country they would like to get the prediction from. In data/results/graphs you can find 4 of my graphs being results of my application, Greece, Italy, Spain and Germany. To note, MAE, RMSE and RAME need to be updated to have more appropriate results.
 
-20/8/23
+20/8/2023
 -New model, gas emissions per EU country. Will be updated for better validation results. The latest model(emissions.py) will merge with the scraping performed in ecp.py to produce comparative results based on the energy consumption and total greenhouse gas emissions. Breakthrough imminent!
 
 21/8/2023
 -Classification exercise with Iris.csv @ classification/.
+
+22/8/2023
+-Forest Fire Predictions model. This is my current focus right now for a forecasting model using data from 2000 up to 2022. Results will be clearly experimental because not all features might be taken into account.
