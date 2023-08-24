@@ -19,3 +19,6 @@ As of today, I upload my hands-on work which will be referred to from time to ti
 
 22/8/2023
 -Forest Fire Predictions model. This is my current focus right now for a forecasting model using data from 2000 up to 2022. Results will be clearly experimental because not all features might be taken into account.
+
+24/8/23
+-Here coems the breakthrough! In forecasting/fires.py I managed to distinguish different fire extinguishing times by calculating averages based on 2022 findings for Greece. Next step is to compare it with previous results to generate a model able to forecast future fires.
