@@ -22,3 +22,6 @@ As of today, I upload my hands-on work which will be referred to from time to ti
 
 24/8/23
 -Here coems the breakthrough! In forecasting/fires.py I managed to distinguish different fire extinguishing times by calculating averages based on 2022 findings for Greece. Next step is to compare it with previous results to generate a model able to forecast future fires.
+
+26/8/2023
+-New Project! Does this mean that I'm leaving the other projects unfinished? Hopefully no, but I decided to not burn my excitement for Machine Learning and decided to try different things, modules, forecasting, handling data etc. I stumbled upon NeuralNine's channel: https://www.youtube.com/@NeuralNine, and decided to take a look on a very low level chatbot. Currently im feeding it with easy mockups of the Greek language and will try to make a chatbot.
