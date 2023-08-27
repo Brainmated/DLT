@@ -140,8 +140,8 @@ def average_extinguish_time():
         print("Average extinguish time for", fire_type, "fire:", average_extinguish_times[fire_type]," from a total of", fire_counts[fire_type], " fires.")
     
 def damages_reg():
-    features = [village, accident_desc, total_firefighters, total_vehicles]
-    label = [destructions]
+    features = ["Χωριό", "Χαρακτηρισμός Συμβάντος", "Σύνολο Πυρ. Δυνάμεων (σε άνδρες και γυναίκες)", "Σύνολο Πυρ. Οχημάτων"]
+    label = ["Καταστροφές"]
 
     #feature matix x and label matrix y
     x = data[features]
