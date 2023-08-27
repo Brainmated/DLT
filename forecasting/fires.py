@@ -139,4 +139,33 @@ def average_extinguish_time():
     for fire_type in average_extinguish_times:
         print("Average extinguish time for", fire_type, "fire:", average_extinguish_times[fire_type]," from a total of", fire_counts[fire_type], " fires.")
     
-average_extinguish_time()
+def damages_reg():
+    features = [village, accident_desc, total_firefighters, total_vehicles]
+    label = [destructions]
+
+    #feature matix x and label matrix y
+    x = data[features]
+    y = data[label]
+
+    #handle categorical variables such as accident_desc because it's a type
+    #perform one-hot encoding 
+    x_encoded = pd.get_dummies(x, drop_first=True)
+
+    #split data to training and testing
+    x_train, x_test, y_train, y_test = train_test_split(x_encoded, y, test_size=0.2, random_state=8)
+
+    #train the model
+    model = LinearRegression()
+    model.fit(x_train, y_train)
+    
+    #make the predictions
+    y_pred = model.predict(x_test)
+
+    #evaluate model with mse and r squared
+    mse = mean_squared_error(y_test, y_pred) #comparables
+    r2 = r2_score(y_test, y_pred)
+
+    print("The Mean Square Error is: ", mse)
+    print("The R Squared Score is: ", r2)
+
+damages_reg()
