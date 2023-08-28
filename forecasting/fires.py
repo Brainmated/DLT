@@ -138,7 +138,7 @@ def average_extinguish_time():
 
     for fire_type in average_extinguish_times:
         print("Average extinguish time for", fire_type, "fire:", average_extinguish_times[fire_type]," from a total of", fire_counts[fire_type], " fires.")
-    
+'''
 def damages_reg():
     features = ["Χωριό", "Χαρακτηρισμός Συμβάντος", "Σύνολο Πυρ. Δυνάμεων (σε άνδρες και γυναίκες)", "Σύνολο Πυρ. Οχημάτων"]
     label = ["Καταστροφές"]
@@ -169,3 +169,43 @@ def damages_reg():
     print("The R Squared Score is: ", r2)
 
 damages_reg()
+'''
+def damages_clustering():
+    features = ["Σύνολο Πυρ. Δυνάμεων (σε άνδρες και γυναίκες)", "Σύνολο Πυρ. Οχημάτων", "Καταστροφές", "Τραυματίες"]
+
+    X = data[features]
+
+    # Perform feature scaling
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
+
+    # Perform K-means clustering
+    k = 3  # Replace with the desired number of clusters
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    kmeans.fit(X_scaled)
+
+    # Get the cluster assignments for each data point
+    cluster_labels = kmeans.labels_
+
+    # Append the cluster labels to the original dataset
+    data["Cluster"] = cluster_labels
+
+    # Optional: Print the cluster centroids
+    cluster_centers = kmeans.cluster_centers_
+    print("Cluster Centers:")
+    for i, center in enumerate(cluster_centers):
+        print(f"Cluster {i+1}: {center}")
+
+    # Optional: Evaluate the clustering solution
+    # You can use evaluation metrics such as silhouette score or within-cluster sum of squares (WCSS)
+
+    # Return the data with cluster labels
+    return data
+
+damages_clustering()
+
+'''Cluster Centers:
+Cluster 1: [-3.75139890e-03 -5.11211786e-06 -4.11990364e-03  2.73540083e-06]
+Cluster 2: [ 5.00952984e-02  6.53479751e-01  2.42724123e+02 -8.05767023e-02]
+Cluster 3: [ 2.20959820e+02 -3.52304439e-01 -4.11990364e-03 -8.05767023e-02]
+'''
