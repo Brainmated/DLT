@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
+import xgboost as xgb
 # -*- coding: utf-8 -*-
 
 # Read the CSV file
@@ -209,3 +210,24 @@ Cluster 1: [-3.75139890e-03 -5.11211786e-06 -4.11990364e-03  2.73540083e-06]
 Cluster 2: [ 5.00952984e-02  6.53479751e-01  2.42724123e+02 -8.05767023e-02]
 Cluster 3: [ 2.20959820e+02 -3.52304439e-01 -4.11990364e-03 -8.05767023e-02]
 '''
+
+def gradient_boosting():
+
+'''
+Will work with gradient boosting as a new model for fires.py.
+Clustering will be worked on again.
+Test will be performed on at least 3 csv's for the result
+'''
+    #x = the feeatures
+    #y = the labels
+
+    #dmatrix = xgb.DMatrix(X, label=y)
+
+    #num_boost_round = 100  # Number of boosting rounds
+
+    '''
+    new_dmatrix = xgb.DMatrix(new_data)
+    predictions = model.predict(new_dmatrix)
+
+    print(predictions)
+    '''
