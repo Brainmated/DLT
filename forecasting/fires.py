@@ -1,8 +1,15 @@
+import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 import xgboost as xgb
+from sklearn.metrics import accuracy_score
 # -*- coding: utf-8 -*-
 
 # Read the CSV file
