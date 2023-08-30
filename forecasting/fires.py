@@ -213,21 +213,20 @@ Cluster 3: [ 2.20959820e+02 -3.52304439e-01 -4.11990364e-03 -8.05767023e-02]
 
 def gradient_boosting():
 
-'''
-Will work with gradient boosting as a new model for fires.py.
-Clustering will be worked on again.
-Test will be performed on at least 3 csv's for the result
-'''
-    #x = the feeatures
-    #y = the labels
+    x = data.dropna(subset=("Σύνολο Πυρ. Δυνάμεων (σε άνδρες και γυναίκες)", "Αριθμός εμπλεκομένων   ανά τύπο "), axis=1)
+    y = data["Θάνατοι"]
 
-    #dmatrix = xgb.DMatrix(X, label=y)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=8)
 
-    #num_boost_round = 100  # Number of boosting rounds
+    model = xgb.XGBClassifier()
+    model.fit(x_train, y_train)
 
-    '''
-    new_dmatrix = xgb.DMatrix(new_data)
-    predictions = model.predict(new_dmatrix)
+    y_pred = model.predict(x_test)
+
+    accuracy = accuracy_score(y_test, y_pred)
+    print("Accuracy:", accuracy)
+
+gradient_boosting()
 
     print(predictions)
     '''
