@@ -25,3 +25,6 @@ As of today, I upload my hands-on work which will be referred to from time to ti
 
 26/8/2023
 -New Project! Does this mean that I'm leaving the other projects unfinished? Hopefully no, but I decided to not burn my excitement for Machine Learning and decided to try different things, modules, forecasting, handling data etc. I stumbled upon NeuralNine's channel: https://www.youtube.com/@NeuralNine, and decided to take a look on a very low level chatbot. Currently im feeding it with easy mockups of the Greek language and will try to make a chatbot.
+
+30/8/2023
+-I've been 'silently' working on fires.py with my new data, 20 years of fire outbreaks both urban and forest wise. The lack of suitable features has slowed me down in making a proper prediction model but each day thankfully im making progress with my findings. forecasting/fires.py includes new methods of sorting data based on new target variables.
