@@ -243,4 +243,81 @@ def gradient_boosting():
     accuracy = accuracy_score(y_test, y_pred)
     print("Accuracy:", accuracy)
 
-gradient_boosting()
+def gen_village_fires():
+    filtered_data = data[data["Χαρακτηρισμός Συμβάντος"].isin(fires)]
+
+    fire_counts = filtered_data.groupby("Χωριό")["Χαρακτηρισμός Συμβάντος"].value_counts().unstack(fill_value=0)
+
+    top_villages = fire_counts.sum(axis=1).nlargest(10).index
+
+    top_fire_counts = fire_counts.loc[top_villages]
+
+    # Create a figure and axes
+    fig, ax = plt.subplots()
+    width = 0.2  # Width of each bar
+
+    # Set the x positions for the bars
+    x = np.arange(len(top_villages))
+
+    # Set custom colors for each fire type
+    colors = ["red", "orange", "yellow"]
+
+    # Plot each fire type as a separate bar
+    for i, fire_type in enumerate(fires):
+        # Calculate the offset for each fire type
+        offset = i * width
+
+        # Get the counts for the current fire type
+        counts = top_fire_counts[fire_type].values
+
+        # Plot the bars for the current fire type
+        ax.bar(x + offset, counts, width, label=fire_type, color=colors[i])
+
+    # Set the x-axis labels to the village names
+    ax.set_xticks(x)
+    ax.set_xticklabels(top_villages, rotation=45, ha="right")
+
+    # Set the y-axis label
+    ax.set_ylabel("Occurrences per fire type")
+
+    # Set the title
+    ax.set_title("Occurrences of Different Fire Types in Top 10 Villages")
+
+    # Create a legend
+    ax.legend()
+
+    # Adjust the layout to prevent overlapping of labels
+    plt.tight_layout()
+    
+    # Save the plot as an image
+    plt.savefig("results/Graphs/graph.png")
+    
+
+    #perform linear regression with training and testings sets
+
+    x_train, x_test, y_train, y_test = train_test_split(top_fire_counts, top_villages, test_size=0.2, random_state=9)
+
+    x_train = np.array(x_train)
+    y_train = np.array(y_train)
+
+    # Reshape y_train and y_test
+    y_train = y_train.reshape(-1)
+
+    # Create an instance of the LogisticRegression model
+    model = LogisticRegression()
+
+    # Fit the model to the training data
+    model.fit(x_train.reshape(-1, 1), y_train)
+
+    # Make predictions on the testing data
+    y_pred = model.predict(x_test.reshape(-1, 1))
+
+
+
+    plt.scatter(x_train, y_train, color='blue', label='Actual')
+    plt.plot(x_train, y_pred, color='red', label='Regression Line')
+    plt.xlabel('Top Fire Counts')
+    plt.ylabel('Top Villages')
+    plt.title('Logistic Regression')
+
+    plt.savefig("results/Graphs/log_reg_graph.png")
