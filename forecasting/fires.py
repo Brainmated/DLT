@@ -244,6 +244,3 @@ def gradient_boosting():
     print("Accuracy:", accuracy)
 
 gradient_boosting()
-
-    print(predictions)
-    '''
