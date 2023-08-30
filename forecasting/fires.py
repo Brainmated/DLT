@@ -12,8 +12,18 @@ import xgboost as xgb
 from sklearn.metrics import accuracy_score
 # -*- coding: utf-8 -*-
 
-# Read the CSV file
-data = pd.read_csv("data/fires.csv")
+directory = "/data"  # Replace with the actual path to your directory
+data = []  # List to store data from multiple files
+
+# Iterate over files in the directory
+for filename in os.listdir(directory):
+    if filename.startswith("region_fires") and filename.endswith(".csv"):
+        file_path = os.path.join(directory, filename)
+        df = pd.read_csv(file_path)
+        data.append(df)
+
+# Concatenate data from multiple files into a single DataFrame
+data = pd.concat(data)
 
 _id = data["Α/Α Εγγραφής"].values
 service = data["Υπηρεσία"].values
