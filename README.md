@@ -29,5 +29,8 @@ As of today, I upload my hands-on work which will be referred to from time to ti
 30/8/2023
 -I've been 'silently' working on fires.py with my new data, 20 years of fire outbreaks both urban and forest wise. The lack of suitable features has slowed me down in making a proper prediction model but each day thankfully im making progress with my findings. forecasting/fires.py includes new methods of sorting data based on new target variables.
 
+**30/8/2023
+-The ecp.py needs to be reworked with different models of prediction due to the mismatch of data (see years 2019-2020) as we all know from Covid. 'Prophet' is my next take.
+
 1/9/2023
 -Started working on forest_fires.py with different data sets. Due to the modified data in terms of format each year, I need to take into account different parameters to keep the data relevant to each other. Currently working on an update in the prediction of the individuals required for firefighting.
