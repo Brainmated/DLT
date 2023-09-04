@@ -32,7 +32,7 @@ def chat_bot():
     while True:
         user_input: str = input("You: ")
 
-        if user_input.lower() = "quit":
+        if user_input.lower() == "quit":
             break
         #get best match by getting the user input and find a list compression
         #it looks in the list of "question" at the q of knowledge_base at the index of "questions"
@@ -47,4 +47,12 @@ def chat_bot():
 
             if new_answer.lower() != "skip":
                 #the knowledge_base at the index of 'questions' is going to append the new answer
-                knowledge_base = []
+                knowledge_base["questions"].append({"question": user_input, "answer": new_answer})
+                #this way, knowledge_base.json has been updated
+                #now accessed again
+                save_knowledge_base("knowledge_base.json", knowledge_base)
+
+                print("Bot: Thank you, I learned a new response!")
+    
+    if __name__ == "__main__":
+        chat_bot()
