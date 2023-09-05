@@ -1,5 +1,40 @@
 {
-    "questions": [
-        
-    ]
+  "questions": [
+    {
+      "question": "Hello",
+      "answer": "Hello, how are you?"
+    },
+    {
+      "question": "What's your name?",
+      "answer": "My name is BearBot!"
+    },
+    {
+      "question": "How old are you?",
+      "answer": "I am a bear **** ummm I am a bot, therefore I have no age, I have a lifespan."
+    },
+    {
+      "question": "I'm fine, how about you?",
+      "answer": "I am a non-sentient program, developed to answer your questions, so eh....."
+    },
+    {
+      "question": "Greetings",
+      "answer": "Greetings to you as well! How can i help you?"
+    },
+    {
+      "question": "fine",
+      "answer": "Glad to hear that, how can I assist you?"
+    },
+    {
+      "question": "Can I ask you something?",
+      "answer": "Certainly, ask me anything you'd like."
+    },
+    {
+      "question": "How's it going?",
+      "answer": "I'm fine, thanks for asking. How can I further assist you?"
+    },
+    {
+      "question": "",
+      "answer": "Hmmmm.... I didn't receive any input. Take your time."
+    }
+  ]
 }
