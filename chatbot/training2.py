@@ -82,7 +82,9 @@ def chat_bot():
         #get best match by getting the user input and find a list compression
         #it looks in the list of "question" at the q of knowledge_base at the index of "questions"
         best_match: str | None = find_best_match(user_input, [q["question"] for q in knowledge_base["questions"]])
-
+        # Translate the user input to a target language
+        translated_input = translate_text(user_input, target_language="en")
+        
         if best_match:
             answer: str = get_answer_for_question(best_match, knowledge_base)
             print(f"Bot: {answer}")
