@@ -72,7 +72,7 @@ def translate_text(text: str, target_language: str) -> str:
     return translation["translatedText"]
         
 def chat_bot():
-    knowledge_base: dict = load_knowledge_base("E:/Programming in Python/data/knowledge_base.json")
+    knowledge_base: dict = load_knowledge_base("data/knowledge_base.json")
 
     while True:
         user_input: str = input("You: ")
@@ -95,7 +95,7 @@ def chat_bot():
                 knowledge_base["questions"].append({"question": user_input, "answer": new_answer})
                 #this way, knowledge_base.json has been updated
                 #now accessed again
-                save_knowledge_base("E:/Programming in Python/data/knowledge_base.json", knowledge_base)
+                save_knowledge_base("data/knowledge_base.json", knowledge_base)
 
                 print("Bot: Thank you, I learned a new response!")
     
