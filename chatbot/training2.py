@@ -64,6 +64,9 @@ def get_answer_for_question(question: str, knowledge_base: dict) -> str | None:
 def translate_text(text: str, target_language: str) -> str:
     # Initialize the translation client
     client = translate.Client()
+
+    #line 178, in __init__  
+    #credentials, _ = google.auth.default(scopes=scopes)
     
     # Translate the text to the target language
     translation = client.translate(text, target_language=target_language)
