@@ -73,7 +73,7 @@ def translate_text(text: str, target_language: str) -> str:
         
 def chat_bot():
     knowledge_base: dict = load_knowledge_base("data/knowledge_base.json")
-
+    translated_input="" #-----------------------------------------------------------WORK ON THIS----------------------------------------------------------------------------
     while True:
         user_input: str = input("You: ")
 
