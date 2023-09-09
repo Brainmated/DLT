@@ -29,6 +29,19 @@ def tokenize_text(text: str) -> list[str]:
     
     return tokens
 
+def find_best_match(self, user_question):
+        vectorizer = TfidfVectorizer()
+        question_corpus = [q["question"] for q in self.data["questions"]]
+        question_corpus.append(user_question)
+        tfidf_matrix = vectorizer.fit_transform(question_corpus)
+        similarity_scores = cosine_similarity(tfidf_matrix[-1], tfidf_matrix[:-1])
+        best_match_index = similarity_scores.argmax()
+        best_match_score = similarity_scores[0, best_match_index]
+        if best_match_score > 0.6:
+            return self.data["questions"][best_match_index]["question"]
+        else:
+            return None
+
 def find_best_match(user_question: str, questions: list[str]) -> str | None:
     # Preprocess user question
     user_question = preprocess_text(user_question)
