@@ -10,3 +10,8 @@ Example: Path Finding Problem
 2. Formulate Problem, drive between cities starting from an initial state
 3. Find solution, try sequences of cities, determine efficiency with each different path
 4. Execute Solution, drive from initial state to X city according to the best solution
+
+Problem Types ~
+  1. Deterministic, fully observable: Agent knows exactly which state it will be in; the solution is a sequence of actions
+  2. Non-observable, sensorless problem: Agent may not know where it is due to the lack of sensors; it reasons in terms of belief states; solution is still a sequence of actions
+  3. Nondeterministic and/or partially observable: contingency problem: Actions are uncertain; percepts provide new information about current state; The Solution is a "strategy" to reach the goal.
