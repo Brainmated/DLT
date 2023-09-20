@@ -1,1 +1,12 @@
+Problem solving agents are goal-directed agents:
+  1. Goal Formulation: Set of one or more (desirable) world states (e.g. checkmate in chess)
+  2. Problem Formulation: What actions and states to consider given a goal and initial state
+  3. Search for a solution: Given the problem, search for a solution -- a sequence of actions to achieve the goal starting from the initial state
+  4. Execution of solution
 
+Example: Path Finding Problem
+
+1. Formulate goal, get to X city
+2. Formulate Problem, drive between cities starting from an initial state
+3. Find solution, try sequences of cities, determine efficiency with each different path
+4. Execute Solution, drive from initial state to X city according to the best solution
