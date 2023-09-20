@@ -15,3 +15,4 @@ Problem Types ~
   1. Deterministic, fully observable: Agent knows exactly which state it will be in; the solution is a sequence of actions
   2. Non-observable, sensorless problem: Agent may not know where it is due to the lack of sensors; it reasons in terms of belief states; solution is still a sequence of actions
   3. Nondeterministic and/or partially observable: contingency problem: Actions are uncertain; percepts provide new information about current state; The Solution is a "strategy" to reach the goal.
+  4. Unknown state space and uncertain action effects: exploration problem; The Solution is a "strategy" to reach the goal and to explore the environment.
