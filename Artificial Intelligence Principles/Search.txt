@@ -16,3 +16,18 @@ Problem Types ~
   2. Non-observable, sensorless problem: Agent may not know where it is due to the lack of sensors; it reasons in terms of belief states; solution is still a sequence of actions
   3. Nondeterministic and/or partially observable: contingency problem: Actions are uncertain; percepts provide new information about current state; The Solution is a "strategy" to reach the goal.
   4. Unknown state space and uncertain action effects: exploration problem; The Solution is a "strategy" to reach the goal and to explore the environment.
+
+Search Strategies ~
+Strategies are evaluated along hte following dimensions:
+  1. Completeness: does it always find a solution if one exists?
+  2. Time Complexity: number of nodes generated
+  3. Space Complexity: maximum number of nodes in memory
+  4. Optimality: does it always find the least-cost solution?
+
+Uninformed search strategies ~
+  -Breadth-first search
+  -Uniform-cost search
+  -Depth-first search
+  -Depth-limited search
+  -Iterative search
+  -Bidirectional search
