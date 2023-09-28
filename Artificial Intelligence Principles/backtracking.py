@@ -6,7 +6,7 @@ def is_valid_move(grid, row, col, num):
             return False
         
     for x in range(9):
-        if grid[col][x] == num:
+        if grid[x][col] == num:
             return False
         
     #find the corners
@@ -63,11 +63,10 @@ grid =[
         [0, 4, 9, 2, 0, 6, 0, 0, 7]
     ]
 
-
 if solve(grid, 0, 0):
     for i in range(9):
         for j in range(9):
-            print(grid,[i][j], end = " ")
+            print(grid[i][j], end=" ")
         print()
 else:
     print("This sudoku puzzle is unsolvable.")
