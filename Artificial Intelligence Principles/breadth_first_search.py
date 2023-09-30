@@ -23,9 +23,9 @@ def breadth_first_search(graph, visited, node): #graph takes the graph created, 
         #pop(0) searches in a bfs manner, whereas pop() searches in depth
         print(s, end = " ") #displays the visited nodes, additionally it displays the order in which nodes are visited
 
-        for neighbor in graph[s]:
-            if neighbor not in visited:
-                visited.append(neighbor)
-                queue.append(neighbor)
+        for neighbor in graph[s]: #this loop iterrates over the neighboring nodes of the current node 's'
+            if neighbor not in visited: #checks if each neighbor hasnt been visited before 
+                visited.append(neighbor) #adds them to the visited list
+                queue.append(neighbor) #adds them to the queue list
 
-breadth_first_search(graph, visited, 'A')
+breadth_first_search(graph, visited, 'A') #starting node set
