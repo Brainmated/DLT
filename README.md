@@ -34,3 +34,6 @@ As of today, I upload my hands-on work which will be referred to from time to ti
 
 1/9/2023
 -Started working on forest_fires.py with different data sets. Due to the modified data in terms of format each year, I need to take into account different parameters to keep the data relevant to each other. Currently working on an update in the prediction of the individuals required for firefighting.
+
+30/9/2023
+-Currently im enrolled in an artificial intelligence principles class in which I will cover the principles of AI and machine learning. By covering up more theory grounds I will better understand the steps needed to properly train a model. Currently working with BFS and DFS, I will work with some models for efficient path finding and exercise with real life scenarios with data collected.
