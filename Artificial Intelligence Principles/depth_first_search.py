@@ -1,3 +1,4 @@
+import time
 #dictionary to represent the graph, each key corresponds to a node, each value corresponds to a neighbor
 graph = {
     'A': ["B", "C"],
@@ -9,7 +10,7 @@ graph = {
     'G': [], #this node doesnt exist in the graph
     'H': []
 }
-
+start_time = time.time() #to calculate the time it takes for my program to be compiled
 visited = set() #a set to add each visited node
 stack = []
 
@@ -24,3 +25,6 @@ def depth_first_search(visited, graph, node):
             depth_first_search(visited, graph, neighbour)
 
 depth_first_search(visited, graph, 'A')
+end_time = time.time()
+total_time = end_time - start_time
+print("Compile Time: ", total_time)
