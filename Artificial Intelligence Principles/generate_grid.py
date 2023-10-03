@@ -71,4 +71,3 @@ def generate_grid():
 
 grid = generate_grid()
 print(grid)
-
