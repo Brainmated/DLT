@@ -1,9 +1,11 @@
 import random
+import numpy as np
 
 grid = []
 
-for row in range(9):
-    for col in range(9):
-        grid.append(random.randint(1, 9))
-print(len(grid))
+height = 9
+width = 9
 
+grid = np.random.randint(1, 10, size = (height, width))
+
+print(grid)
