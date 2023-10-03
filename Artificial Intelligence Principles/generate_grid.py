@@ -64,8 +64,8 @@ def set_three(grid, two_pos):
 def generate_grid():
     grid = set_grid()
     one_pos = set_one(grid)
-    two_pos = set_two(grid)
-    set_three(grid, two_pos)
+    two_pos = set_two(grid, one_pos)
+    grid = set_three(grid, two_pos)
 
     return grid
 
