@@ -17,9 +17,10 @@ def generate_grid():
 #set 1 in a random position, then modify the method to
 #generate 1 in a different row and col of the initial random position
 def set_ones(grid):
-    for row in range(0, 3):
-        for col in range(0, 3):
-            grid[row][col] = 1
+    row_index = random.randint(0, 2)
+    col_index = random.randint(0, 3)
+
+    grid[row_index, col_index] = 1
 
     print(grid)
 
