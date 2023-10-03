@@ -1,10 +1,9 @@
 import random
 
-nums = []
-for i in range(3):
-    nums.append(["a"])
-print("i: ", nums)
-for j in range(3):
-    nums.append(["b"])
-print("j: ", nums)
+grid = []
+
+for row in range(9):
+    for col in range(9):
+        grid.append(random.randint(1, 9))
+print(len(grid))
 
