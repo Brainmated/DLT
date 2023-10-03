@@ -2,10 +2,17 @@ import random
 import numpy as np
 
 grid = []
+row = []
+col = []
 
-height = 9
-width = 9
+def generate_grid():
 
-grid = np.random.randint(1, 10, size = (height, width))
+    height = 9
+    width = 9
 
-print(grid)
+    grid = np.zeros((height, width), dtype = int)
+
+    print(grid)
+
+def set_ones():
+    
