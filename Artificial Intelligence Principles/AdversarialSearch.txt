@@ -1,0 +1,12 @@
+Adversarial Search:
+  Adversarial Reasoning:
+    Mathematical Game Theory: Branch of economics that views any multi-agent environment as a game.
+
+First Step:
+  - Deterministic, no randomness is involved
+  - Turn taking
+  - 2-player
+  - Zero-sum game of perfect information (fully observable): The sum of all pays is 0, somebody wins big, somebody loses big.
+
+Multi-Agent vs Single-Agent game search problem:
+  "Unpredictable" opponends need a strategy: They specify moves for each opponents reply.
