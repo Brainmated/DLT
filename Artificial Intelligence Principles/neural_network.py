@@ -4,6 +4,7 @@ import torch.optim as optim
 import numpy as np
 import pandas as pd
 import time
+import matplotlib.pyplot as plt
 
 start_time = time.time()
 data = pd.read_csv("E:/Programming in Python/data/World_Port_Index.csv", header=1)
@@ -21,7 +22,8 @@ dist = np.zeros((len(ports), len(ports)))
 for i in range(len(ports)):
     for j in range(len(ports)):
         #Haversine Formula
-        return 1
+        return "test"
+    return "test1"
         
 
 def calculate_distance():
@@ -36,3 +38,5 @@ def calculate_distance():
         float: Distance between the two points in kilometers.
         '''
     return 1
+
+plt.scatter(coords[:, 0], coords[:, 1], marker = "o", color = "blue")
