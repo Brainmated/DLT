@@ -36,6 +36,13 @@ def calculate_distance():
     
         Returns:
         float: Distance between the two points in kilometers.
+
+        LAT_DEG = latitude degrees
+        LAT_MIN = latitude minutes
+        LAT_HEMI = latitude hemisphere, N and S for the halves of the hemisphere
+        LONG_DEG = longitude degrees
+        LONG_MIN = longitude minutes
+        LONG_HEMI longitude hemisphere, Eastern and Western Hemisphere
         '''
     return 1
 
