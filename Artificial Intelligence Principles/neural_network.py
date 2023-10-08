@@ -46,9 +46,11 @@ def calculate_distance():
         '''
     return 1
 
-plt.scatter(coords[:, 0], coords[:, 1], marker = "o", color = "blue")
-plt.xlabel("Latitude")
-plt.ylabel("Longitude")
-plt.title("Distance between World Ports")
+def generate_plot():
+    plt.scatter(coords[:, 0], coords[:, 1], marker = "o", color = "blue")
+    plt.xlabel("Latitude")
+    plt.ylabel("Longitude")
+    plt.title("Distance between World Ports")
 
-plt.savefig()
+    plt.savefig()
+    return "Plot saved."
