@@ -21,7 +21,11 @@ dist = np.zeros((len(ports), len(ports)))
 for i in range(len(ports)):
     for j in range(len(ports)):
         #Haversine Formula
-        '''
+        return 1
+        
+
+def calculate_distance():
+    '''
         Parameters:
         lat1 (float): Latitude of the first point in degrees.
         lon1 (float): Longitude of the first point in degrees.
@@ -31,4 +35,4 @@ for i in range(len(ports)):
         Returns:
         float: Distance between the two points in kilometers.
         '''
-        
+    return 1
