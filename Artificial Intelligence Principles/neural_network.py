@@ -18,6 +18,9 @@ y_coords = data.iloc[:, 1].values
 coords = np.column_stack((x_coords, y_coords))
 ports = data["PORT_NAME"]
 
+radius = 6371
+
+
 dist = np.zeros((len(ports), len(ports)))
 for i in range(len(ports)):
     for j in range(len(ports)):
@@ -45,6 +48,8 @@ def calculate_distance():
         LONG_HEMI longitude hemisphere, Eastern and Western Hemisphere
         '''
     return 1
+
+x = long1 -long2
 
 def generate_plot():
     plt.scatter(coords[:, 0], coords[:, 1], marker = "o", color = "blue")
