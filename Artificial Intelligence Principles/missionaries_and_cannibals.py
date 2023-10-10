@@ -23,11 +23,12 @@ end_state = (0, 0, 0) #0 miss, 0 canns to the left, boat not to the left
 moves = [(1, 0), (0, 1), (2, 0), (0, 2)]
 boat = ["Left", "Right"]
 side = []
-visited = {}
-    
+visited = {} #make a queue for the visited nodes
+
+print("Variables set.")
 
 def get_valid_move(self, missionaries, cannibals):
-
+    print("Valid move Found.")
     return (0 <= missionaries <= 3) and (0 <= cannibals <= 3)
 
 def init_state(missionaries, cannibals, side):
@@ -45,9 +46,19 @@ def dfs(state):
 
     #To get the current state information
     leftMiss, leftCann, boat_side = state
+    print("Goal state set")
 
     #Iterate through all possible moves
     for move in moves:
         mb, cb = move
-        
-        if (boat_side == "Right" and rightCann <= leftCann and rightMiss <= leftMiss) or (boat_side == "Left" and )
+
+        if (boat_side == "Right" and rightCann <= leftCann and rightMiss <= leftMiss) or 
+        (boat_side == "Left" and rightCann >= leftCann and rightMiss >= leftMiss):
+        #basically generate the new state if the move is valid
+        new_state = new_state #dont know how to implement this
+
+        #Then check if the new state is not visited
+        if get_valid_move(new_state) and new_state not in visited:
+            #perform reccursion in the with the dfs method
+            dfs(new_state)
+    path.pop() #remove the last current state each time if it doesnt provide the solution
