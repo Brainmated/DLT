@@ -10,6 +10,14 @@ path = [] #the stack
 
 #boat = True, boat could be a boolean with True being the left, False the right
 
+leftMiss = 3 #initial state of missionaries
+rightMiss = 0 #end state of missionaries
+mb = 0 #missionaries on boat
+
+leftCann = 3
+rightCann = 0
+cb = 0
+
 initial_state = (3, 3, 1) #3 missionaries, 3 cannibals and the boat to the left 
 end_state = (0, 0, 0) #0 miss, 0 canns to the left, boat not to the left
 moves = [(1, 0), (0, 1), (2, 0), (0, 2)]
@@ -34,3 +42,12 @@ def dfs(state):
     if state == goal_state:
         return True
     visited[state] = True #marks the current state as visited
+
+    #To get the current state information
+    leftMiss, leftCann, boat_side = state
+
+    #Iterate through all possible moves
+    for move in moves:
+        mb, cb = move
+        
+        if (boat_side == "Right" and rightCann <= leftCann and rightMiss <= leftMiss) or (boat_side == "Left" and )
