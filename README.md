@@ -37,3 +37,6 @@ As of today, I upload my hands-on work which will be referred to from time to ti
 
 30/9/2023
 -Currently im enrolled in an artificial intelligence principles class in which I will cover the principles of AI and machine learning. By covering up more theory grounds I will better understand the steps needed to properly train a model. Currently working with BFS and DFS, I will work with some models for efficient path finding and exercise with real life scenarios with data collected.
+
+10/10/2023
+-Working @Artifical Intelligence Principles Directory, I have submitted an early stage of the missionaries and cannibals dillema puzzle. Will work on it again after some guidance. The sudoku grid will be looked upon again since my backtracking approach isnt efficient and requires more manual work (NOT GOOD).
