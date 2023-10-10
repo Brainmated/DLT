@@ -28,7 +28,9 @@ def init_state(missionaries, cannibals, side):
 def goal_state(missionaries, cannibals, side):
     return (missionaries, cannibals, side) == goal_state
 
+def dfs(state):
+    path.append(state) #add the current state to the path
 
-
-def solve():
-    return 1
+    if state == goal_state:
+        return True
+    visited[state] = True #marks the current state as visited
