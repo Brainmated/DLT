@@ -32,9 +32,11 @@ def get_valid_move(self, missionaries, cannibals):
     return (0 <= missionaries <= 3) and (0 <= cannibals <= 3)
 
 def init_state(missionaries, cannibals, side):
+    print("Initial state set.")
     return (missionaries, cannibals, side) == initial_state
 
 def goal_state(missionaries, cannibals, side):
+    print("Goal state set.")
     return (missionaries, cannibals, side) == goal_state
 
 def dfs(state):
