@@ -41,7 +41,7 @@ def goal_state(missionaries, cannibals, side):
 
 def dfs(state):
     path.append(state) #add the current state to the path
-
+    #this will recurse until the end path is found
     if state == goal_state:
         return True
     visited[state] = True #marks the current state as visited
@@ -64,3 +64,8 @@ def dfs(state):
             #perform reccursion in the with the dfs method
             dfs(new_state)
     path.pop() #remove the last current state each time if it doesnt provide the solution
+
+init_state(initial_state)
+
+if dfs(init_state):
+    print("Path: ", path)
