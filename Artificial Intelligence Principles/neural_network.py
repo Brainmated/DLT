@@ -28,7 +28,10 @@ if all(port in ports for port in ports[port1, port2]):
 else:
     
 
+'''
+Before the plot is generated, a gui will be made, asking for user input.
 
+'''
 def generate_plot():
     plt.scatter(coords[:, 0], coords[:, 1], marker = "o", color = "blue")
     plt.xlabel("Latitude")
