@@ -30,7 +30,7 @@ else:
 
 '''
 Before the plot is generated, a gui will be made, asking for user input.
-
+GQIS Implementation IS URGENT!
 '''
 def generate_plot():
     plt.scatter(coords[:, 0], coords[:, 1], marker = "o", color = "blue")
