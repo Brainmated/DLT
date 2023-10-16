@@ -5,7 +5,6 @@ under the constraint that, for both banks, if there are missionaries present on 
 they cannot be outnumbered by cannibals (if they were, the cannibals would eat the missionaries). 
 The boat cannot cross the river by itself with no people on board.
 '''
-
 path = [] #the stack
 
 #boat = True, boat could be a boolean with True being the left, False the right
@@ -41,7 +40,6 @@ def goal_state(missionaries, cannibals, side):
 
 def dfs(state):
     path.append(state) #add the current state to the path
-    #this will recurse until the end path is found
     if state == goal_state:
         return True
     visited[state] = True #marks the current state as visited
@@ -56,7 +54,7 @@ def dfs(state):
 
         if (boat_side == "Right" and rightCann <= leftCann and rightMiss <= leftMiss) or 
         (boat_side == "Left" and rightCann >= leftCann and rightMiss >= leftMiss):
-        #basically generate the new state if the move is valid
+
         new_state = new_state #dont know how to implement this
 
         #Then check if the new state is not visited
