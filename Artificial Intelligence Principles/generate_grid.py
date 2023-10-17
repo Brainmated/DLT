@@ -48,32 +48,6 @@ def set_two(grid, one_pos):
 
     return two_pos
 
-def set_three(grid, two_pos):
-    row_index = random.randint(0, 2)
-    col_index = random.randint(0, 2)
-    three_pos = [row_index, col_index]
-    #check if the cell is occupied by '2'
-    while [row_index, col_index] == two_pos:
-        row_index = random.randint(0, 2)
-        col_index = random.randint(0, 2)
-
-    grid[row_index, col_index] = 3
-
-    return three_pos
-
-def set_four(grid, three_pos):
-    row_index = random.randint(0, 2)
-    col_index = random.randint(0, 2)
-    four_pos = [row_index, col_index]
-    #check if the cell is occupied by '3'
-    while [row_index, col_index] == three_pos:
-        row_index = random.randint(0, 2)
-        col_index = random.randint(0, 2)
-
-    grid[row_index, col_index] = 4
-
-    return grid
-
 def generate_grid():
     grid = set_grid()
     one_pos = set_one(grid)
