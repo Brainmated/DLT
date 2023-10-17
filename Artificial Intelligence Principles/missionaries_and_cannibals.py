@@ -59,8 +59,7 @@ def dfs(state):
 
         #Then check if the new state is not visited
         if get_valid_move(new_state) and new_state not in visited:
-            #perform reccursion in the with the dfs method
-            dfs(new_state)
+         
     path.pop() #remove the last current state each time if it doesnt provide the solution
 
 init_state(initial_state)
