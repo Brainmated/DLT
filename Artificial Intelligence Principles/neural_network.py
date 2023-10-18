@@ -18,16 +18,18 @@ ports = data.iloc[:, 3].values
 
 radius = 6371
 
-port1 = input("Enter Port 1: ")
-port2 = input("Enter Port 2: ")
+port1 = input("Enter Port 1: ").lower()
+port2 = input("Enter Port 2: ").lower()
 
 def find_ports():
+
+    latx, lonx, laty, lony = None
+
     if port1 in ports:
         index1 = ports.tolist().index(port1)
         latx = latitude[index1]
         lonx = longitude[index1]
         print(f"Port {port1} located.")
-        return latx, lonx
     else:
         print(f"Port '{port1}' not found in the 'ports' data.")
     
@@ -36,9 +38,10 @@ def find_ports():
         laty = latitude[index2]
         lony = longitude[index2]   
         print(f"Port {port2} located.")
-        return laty, lony
     else:
         print(f"Port '{port2}' not found in the 'ports' data.")
+
+    return latx, lonx, laty, lony
 
 def calculate_distance(latx, lonx, laty, lony):
 
@@ -58,13 +61,13 @@ def calculate_distance(latx, lonx, laty, lony):
 
     return distance
     
+latx, lonx, laty, lony = find_ports()
 
-
-latx, lonx = find_ports()
-laty, lony = find_ports()
-distance = calculate_distance(latx, lonx, laty, lony)
-
-print(f"The distance between {port1} and {port2} is {distance:.2f} kilometers.")
+if latx is not None and lonx is not None and laty is not None and lony is not None:
+    distance = calculate_distance(latx, lonx, laty, lony)
+    print(f"The distance between {port1} and {port2} is {distance:.2f} kilometers.")
+else:
+    print("Cannot calculate the distance. Please verify the input ports.")
 
 '''
 def generate_plot():
