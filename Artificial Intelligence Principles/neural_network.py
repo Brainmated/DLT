@@ -9,7 +9,9 @@ import math
 
 start_time = time.time()
 data = pd.read_csv("D:/Programming in Python/data/World_Port_Index.csv", header=0)
-print("CSV Read.")
+end_time = time.time()
+total_time = end_time - start_time
+print(f"CSV Read in {total_time} seconds.")
 
 latitude = data.iloc[:, 5].values
 longitude = data.iloc[:, 6].values
@@ -18,12 +20,16 @@ ports = data.iloc[:, 3].values
 
 radius = 6371
 
-port1 = input("Enter Port 1: ").lower()
-port2 = input("Enter Port 2: ").lower()
+port1 = input("Enter Port 1: ")
+port2 = input("Enter Port 2: ")
 
+start_time = time.time()
 def find_ports():
 
-    latx, lonx, laty, lony = None
+    latx = None
+    lonx = None
+    laty = None
+    lony = None
 
     if port1 in ports:
         index1 = ports.tolist().index(port1)
@@ -62,10 +68,12 @@ def calculate_distance(latx, lonx, laty, lony):
     return distance
     
 latx, lonx, laty, lony = find_ports()
-
+end_time = time.time()
+total_time = end_time - start_time
 if latx is not None and lonx is not None and laty is not None and lony is not None:
     distance = calculate_distance(latx, lonx, laty, lony)
     print(f"The distance between {port1} and {port2} is {distance:.2f} kilometers.")
+    print(f"Calculation time: {total_time} seconds")
 else:
     print("Cannot calculate the distance. Please verify the input ports.")
 
