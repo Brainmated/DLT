@@ -23,7 +23,7 @@ port2 = input("Enter Port 2: ")
 
 def find_ports():
     if port1 in ports:
-        index1 = ports.index(port1)
+        index1 = ports.tolist().index(port1)
         latx = latitude[index1]
         lonx = longitude[index1]
         print(f"Port {port1} located.")
@@ -32,7 +32,7 @@ def find_ports():
         print(f"Port '{port1}' not found in the 'ports' data.")
     
     if port2 in ports:
-        index2 = ports.index(port2)
+        index2 = ports.tolist().index(port2)
         laty = latitude[index2]
         lony = longitude[index2]   
         print(f"Port {port2} located.")
@@ -60,7 +60,11 @@ def calculate_distance(latx, lonx, laty, lony):
     
 
 
-calculate_distance(port1, port2)
+latx, lonx = find_ports()
+laty, lony = find_ports()
+distance = calculate_distance(latx, lonx, laty, lony)
+
+print(f"The distance between {port1} and {port2} is {distance:.2f} kilometers.")
 
 '''
 def generate_plot():
