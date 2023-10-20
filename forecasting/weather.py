@@ -1,12 +1,13 @@
 import datetime as dt
 import requests
 
-base_url = "http://api.weatherapi.com/v1/forecast.json?key&q=London&days=1&aqi=no&alerts=no"
 
-endpoint = "/marine.json"
+base_url = "http://api.weatherapi.com/v1"
+
+endpoint = "/current.json"
 params = {
     "key": api_key,
-    "q": "146.8333333, 43.86666667",
+    "q": "Paris",
     "days": 1
 }
 
