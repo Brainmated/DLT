@@ -3,7 +3,7 @@ import requests
 
 base_url = "http://api.weatherapi.com/v1/forecast.json?key&q=London&days=1&aqi=no&alerts=no"
 
-endpoint = "/forecast.json"
+endpoint = "/marine.json"
 params = {
     "key": api_key,
     "q": "146.8333333, 43.86666667",
