@@ -1,7 +1,7 @@
 import datetime as dt
 import requests
 
-base_url = "http://api.weatherapi.com/v1/forecast.json?key=aa45f6330f334a29afd163712232010&q=London&days=1&aqi=no&alerts=no"
+base_url = "http://api.weatherapi.com/v1/forecast.json?key&q=London&days=1&aqi=no&alerts=no"
 
 endpoint = "/forecast.json"
 params = {
