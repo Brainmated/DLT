@@ -11,12 +11,12 @@ params = {
     "days": 1
 }
 
+
 response = requests.get(base_url + endpoint, params=params)
 
-data = response.json
-
-if "forecast" in data.keys():
-    forecast = data["forecast"]
-    print(forecast)
+if "current" in response.keys():
+    current = response["current"]
+    temp = current["temp_c"]
+    print("Current temperature in Paris:", temp)
 else:
-    print("Error retrieving weather forecast: ",data["error"]["message"])
+    print("Error retrieving weather forecast:", response["error"]["message"])
