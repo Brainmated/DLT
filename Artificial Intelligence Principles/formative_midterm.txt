@@ -1,0 +1,20 @@
+Transform the following sentences into Logic statements
+a.	If someone drives a car and is drunk, then this person breaks the law.
+b.	John drives his Mercedes.
+c.	Mercedes is a car.
+d.	John is drunk.
+
+p = drives a car
+q = is drunk
+r = breaks the law
+
+E(x)(p(x) ^ q(x)) -> r
+
+Translate the above English sentences to First-Order Logic (FOL) using the appropriate predicates, such as: Drives(x,y), Car(x), BreaksLaw(x), Drunk(x) and define any other you might need to add.
+
+Drives(x,y)
+Car(x)
+BreaksLaw(x)
+Drunk(x)
+
+E(x)((Drives(x,y) ^ Car(x) ^ Drunk(x)) -> BreaksLaw(x)
