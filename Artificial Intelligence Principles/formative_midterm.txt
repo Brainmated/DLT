@@ -8,7 +8,7 @@ p = drives a car
 q = is drunk
 r = breaks the law
 
-E(x)(p(x) ^ q(x)) -> r
+Ex((p(x) ^ q(x)) -> r(x)
 
 Translate the above English sentences to First-Order Logic (FOL) using the appropriate predicates, such as: Drives(x,y), Car(x), BreaksLaw(x), Drunk(x) and define any other you might need to add.
 
@@ -17,4 +17,14 @@ Car(x)
 BreaksLaw(x)
 Drunk(x)
 
-E(x)((Drives(x,y) ^ Car(x) ^ Drunk(x)) -> BreaksLaw(x)
+a. E(x)((Drives(x,y) ^ Car(y) ^ Drunk(x)) -> BreaksLaw(x)
+b. Drives(x,y) x = John, y = Mercedes
+c. Car(y) y = Mercedes
+d. Drunk(x) x = John
+
+Then convert the knowledgebase to CNF. 
+
+F(x)(Drives(x,y) ^ Car(y) ^ Drunk(x)) -> BreaksLaw(x)
+Implication Elimination: >(F(x)(Drives(x,y) ^ Car(y) ^ Drunk(x))) U BreaksLaw(x)
+De Morgan's Law: Ex((Drives(x,y) ^ Car(y) ^ Drunk(x)) ^ >BreaksLaw(x)
+Distributivity: (Ex Drives(x,y) ^ Ex Car(y) ^ Drunk(x)) ^ >BreaksLaw(x)
