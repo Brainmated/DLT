@@ -2,3 +2,8 @@ Formula to calculate the homogeneity of a sample.
 
 Entropy(s) = -p+log2(p+)0p-log2(p-) for a sample of negative and positive elements.
 
+For a 2-sided coin:
+-1/2log2(1/2)-1/2log2(1/2)=1
+
+For a 6-sided die:
+-1/6log2(1/6)-1/6log2(1/6) = -log2(1/6) = log2(6) = 2.584xxxxxxxx
