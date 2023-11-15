@@ -1,0 +1,4 @@
+Formula to calculate the homogeneity of a sample.
+
+Entropy(s) = -p+log2(p+)0p-log2(p-) for a sample of negative and positive elements.
+
