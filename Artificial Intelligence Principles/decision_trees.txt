@@ -1,0 +1,3 @@
+1.Rules for classifying data using attributes
+2.The tree consists of decision nodes and leaf nodes
+3.A decision tree has two or more branches
