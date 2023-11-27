@@ -45,7 +45,7 @@ public class SuperTicTacToe {
 		this.computerFirstPlayer = computerFirst;
 		char maxPlayer = computerFirst ? P1 : P2;
 		System.out.println("Computer is: "+(computerFirst?P1:P2));
-		this.myAI = new SuperTicTacToeAI(this, maxPlayer); // Pass this and maxPlayer to the constructor
+		this.myAI = new SuperTicTacToeAI(); // Pass this and maxPlayer to the constructor
 		// init
 		boardState = new char[BOARDSIZE][BOARDSIZE];
 		lastActiveBoardX = lastActiveBoardY = (NOSQUARESXY-1)/2; // active board in the middle initially
@@ -69,6 +69,7 @@ public class SuperTicTacToe {
 			for (int y=0; y<BOARDSIZE; y++)
 				board[x][y] = SPACE;
 		lastActiveBoardX = lastActiveBoardY = 1;
+	}
 
 	public char[][] getBoard()
 	{
@@ -169,7 +170,7 @@ public class SuperTicTacToe {
 	 * @param moves : the current move as an array of 2 ints
 	 */
 	private void saveToFile(int currMove, int[] moves) {
-		String name = "D:/Programming in Java/logs/" + currMove + ".txt";  // Specify the directory
+		String name = "logs\\" + currMove + ".txt";  // Specify the directory
 		PrintWriter out;
 		try {
 			out = new PrintWriter(name);
@@ -188,10 +189,10 @@ public class SuperTicTacToe {
 	 */
 	private int[] readFromFile(int currMove)
 	{
-		String name = "D:/Programming in Java/logs/" + currMove + ".txt";  // Specify the directory
-    int move[] = null;
-    while (move == null)
-    {
+		String name = "logs\\" + currMove + ".txt";  // Specify the directory
+	    int move[] = null;
+	    while (move == null)
+	    {
         File inputFile = new File(name);
         while (!inputFile.exists())
         {
@@ -247,7 +248,7 @@ public class SuperTicTacToe {
 			{
 				//computer selects a move
 				long time0 = System.currentTimeMillis();
-				int move[] = myAI.nextMove(this, currentPiece);
+				int move[] = myAI.nextMove(this, currentPiece, currentMove);
 				times[(currentMove+1)%2] = (int)(System.currentTimeMillis()-time0+500)/1000;
 				implementMove(move, currentPiece, boardState);
 				boardcomp.updateBoard(this,times,move);
