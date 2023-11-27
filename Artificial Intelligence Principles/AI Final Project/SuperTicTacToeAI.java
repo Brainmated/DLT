@@ -1,7 +1,6 @@
 
 /**
  * You should extend (inherit from) this class and implement your AI
- * @author Ioannis A. Vetsikas
  *
  */
 public class SuperTicTacToeAI {
@@ -9,7 +8,7 @@ public class SuperTicTacToeAI {
 	/**
 	 * This method should return the coordinate of the next move (where to place next piece)
 	 * NOTE: It just places in the next possible spot, using no strategy.
-	 * --- STUDENTS SHOULD INHERIT FROM THIS CLASS AND BUILD THEIR OWN AIS ---
+	 * --- INHERIT FROM THIS CLASS AND BUILD THE AI ---
 	 * @param gs The gamestate (i.e. the board, active small board etc)
 	 * @param maxPlayer the char of the current (max) player - for whom you return the move
 	 * @return coordinates as a int[2] array
