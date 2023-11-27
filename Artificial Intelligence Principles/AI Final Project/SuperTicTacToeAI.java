@@ -8,7 +8,7 @@ public class SuperTicTacToeAI {
 
 	public SuperTicTacToeAI() {
 		try {
-			this.moveFile = new File("D:/Programming in Java/logs/");
+			this.moveFile = new File("D:\\Programming in Java\\logs\\");
 			this.scanner = new Scanner(moveFile);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -16,8 +16,13 @@ public class SuperTicTacToeAI {
 	}
 
 	public int[] nextMove(SuperTicTacToe gs, char maxPlayer, int currMove) {
-		String name = "D:/Programming in Java/logs/" + currMove + ".txt";  // Specify the directory
+		String name = "D:\\Programming in Java\\logs\\" + currMove + ".txt";  // Specify the directory
 		File moveFile = new File(name);
+	    if (moveFile.exists()) {
+	        System.out.println("File " + name + " exists.");
+	    } else {
+	        System.out.println("File " + name + " does not exist.");
+	    }
 		Scanner scanner = null;
 		try {
 			scanner = new Scanner(moveFile);
