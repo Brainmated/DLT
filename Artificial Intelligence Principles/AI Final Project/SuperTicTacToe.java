@@ -169,7 +169,7 @@ public class SuperTicTacToe {
 	 * @param moves : the current move as an array of 2 ints
 	 */
 	private void saveToFile(int currMove, int[] moves) {
-		String name = "logs/" + currMove + ".txt";  // Specify the directory
+		String name = "D:/Programming in Java/logs/" + currMove + ".txt";  // Specify the directory
 		PrintWriter out;
 		try {
 			out = new PrintWriter(name);
@@ -188,7 +188,7 @@ public class SuperTicTacToe {
 	 */
 	private int[] readFromFile(int currMove)
 	{
-		String name = "logs/" + currMove + ".txt";  // Specify the directory
+		String name = "D:/Programming in Java/logs/" + currMove + ".txt";  // Specify the directory
     int move[] = null;
     while (move == null)
     {
