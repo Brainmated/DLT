@@ -8,7 +8,7 @@ public class SuperTicTacToeAI {
 
 	public SuperTicTacToeAI() {
 		try {
-			this.moveFile = new File("path_to_your_file");
+			this.moveFile = new File("D:/Programming in Java/logs/");
 			this.scanner = new Scanner(moveFile);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
