@@ -168,9 +168,8 @@ public class SuperTicTacToe {
 	 * @param currMove : number of current move (used to generate the file name)
 	 * @param moves : the current move as an array of 2 ints
 	 */
-	private void saveToFile(int currMove, int[] moves)
-	{
-		String name = currMove+".txt";
+	private void saveToFile(int currMove, int[] moves) {
+		String name = "logs/" + currMove + ".txt";  // Specify the directory
 		PrintWriter out;
 		try {
 			out = new PrintWriter(name);
@@ -189,33 +188,33 @@ public class SuperTicTacToe {
 	 */
 	private int[] readFromFile(int currMove)
 	{
-		String name = currMove+".txt";
-		int move[] = null;
-		while (move==null)
-		{
-			File inputFile = new File(name);
-			while (!inputFile.exists())
-			{
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}				
-			}
-			try {
-				Scanner in2 = new Scanner(inputFile);
-				move = parseMove(in2.nextLine());
-				in2.close();
-			} catch (FileNotFoundException e) {
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}				
-			}
-		}
-		System.out.println("Read move from file: " + moveToString(move));
-		return move;
+		String name = "logs/" + currMove + ".txt";  // Specify the directory
+    int move[] = null;
+    while (move == null)
+    {
+        File inputFile = new File(name);
+        while (!inputFile.exists())
+        {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }               
+        }
+        try {
+            Scanner in2 = new Scanner(inputFile);
+            move = parseMove(in2.nextLine());
+            in2.close();
+        } catch (FileNotFoundException e) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }               
+        }
+    }
+    System.out.println("Read move from file: " + moveToString(move));
+    return move;
 	}
 	
 	/**
