@@ -39,13 +39,13 @@ public class SuperTicTacToe {
 	 * @param againstHuman true if the opponent is human
 	 * @param computerFirst is computer the first player
 	 */
-	public SuperTicTacToe(boolean againstHuman, boolean computerFirst)
-	{
+	public SuperTicTacToe(boolean againstHuman, boolean computerFirst) {
 		this.againstHuman = againstHuman;
 		System.out.println("Playing against a human:"+againstHuman);
 		this.computerFirstPlayer = computerFirst;
+		char maxPlayer = computerFirst ? P1 : P2;
 		System.out.println("Computer is: "+(computerFirst?P1:P2));
-		this.myAI = new SuperTicTacToeAI(); //new MMAB();
+		this.myAI = new SuperTicTacToeAI(this, maxPlayer); // Pass this and maxPlayer to the constructor
 		// init
 		boardState = new char[BOARDSIZE][BOARDSIZE];
 		lastActiveBoardX = lastActiveBoardY = (NOSQUARESXY-1)/2; // active board in the middle initially
