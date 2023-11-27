@@ -11,6 +11,14 @@ public class SuperTicTacToeAI {
 	 * @param maxPlayer the char of the current (max) player - for whom you return the move
 	 * @return coordinates as a int[2] array
 	 */
+	private SuperTicTacToe game;
+    private char maxPlayer;
+
+	public SuperTicTacToeAI(SuperTicTacToe game, char maxPlayer) {
+        this.game = game;
+        this.maxPlayer = maxPlayer;
+    }
+	
 	public int[] nextMove(SuperTicTacToe gs, char maxPlayer)
 {
     char[][] board = gs.getBoard();
@@ -33,8 +41,18 @@ public class SuperTicTacToeAI {
                     return new int[]{x,y};
                 }
                 // Check for "open two" opportunities.
-                // TODO: You will need to implement this yourself based on your game rules.
                 // If an "open two" opportunity is found, return new int[]{x,y}.
+				for (int dx=-1; dx<=1; dx++) {
+					for (int dy=-1; dy<=1; dy++) {
+						if (x+dx>=0 && x+dx<SuperTicTacToe.BOARDSIZE && y+dy>=0 && y+dy<SuperTicTacToe.BOARDSIZE &&
+							x+2*dx>=0 && x+2*dx<SuperTicTacToe.BOARDSIZE && y+2*dy>=0 && y+2*dy<SuperTicTacToe.BOARDSIZE) {
+							if (board[x+dx][y+dy] == maxPlayer && board[x+2*dx][y+2*dy] == maxPlayer) {
+								board[x][y] = SuperTicTacToe.SPACE;  // undo move
+								return new int[]{x,y};
+							}
+						}
+					}
+				}
 
                 board[x][y] = SuperTicTacToe.SPACE;  // undo move
             }
