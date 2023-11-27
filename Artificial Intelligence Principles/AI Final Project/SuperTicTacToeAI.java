@@ -4,34 +4,47 @@
  * @author Ioannis A. Vetsikas
  *
  */
-public class SuperTicTacToeAI {
-	
-	/**
-	 * This method should return the coordinate of the next move (where to place next piece)
-	 * NOTE: It just places in the next possible spot, using no strategy.
-	 * --- STUDENTS SHOULD INHERIT FROM THIS CLASS AND BUILD THEIR OWN AIS ---
-	 * @param gs The gamestate (i.e. the board, active small board etc)
-	 * @param maxPlayer the char of the current (max) player - for whom you return the move
-	 * @return coordinates as a int[2] array
-	 */
-	public int[] nextMove(SuperTicTacToe gs, char maxPlayer)
-	{
-		char[][] board = gs.getBoard();
-		@SuppressWarnings("unused")
-		int[] activeboard = gs.getActiveBoard();
-		/*
-		for (int y=0; y<SuperTicTacToe.BOARDSIZE; y++)
-		{
-			for (int x=0; x<SuperTicTacToe.BOARDSIZE; x++)
-				System.out.print(board[x][y]);
-			System.out.println();
-		}
-		System.out.println(Arrays.toString(activeboard));
-		*/
-		for (int x=0; x<SuperTicTacToe.BOARDSIZE; x++)
-			for (int y=0; y<SuperTicTacToe.BOARDSIZE; y++)
-				if (gs.inActiveBoard(new int[] {x,y}) && board[x][y]==SuperTicTacToe.SPACE)
-					return new int[]{x,y};
-		return new int[]{0,0}; // should not reach here
-	}
+public class SuperTicTacToeAI extends SuperTicTacToe {
+    @Override
+    public int[] nextMove(SuperTicTacToe gs, char maxPlayer) {
+        char[][] board = gs.getBoard();
+        int[] activeBoard = gs.getActiveBoard();
+        
+        int bestScore = Integer.MIN_VALUE;
+        int[] bestMove = null;
+        
+        for (int x = 0; x < BOARDSIZE; x++) {
+            for (int y = 0; y < BOARDSIZE; y++) {
+                int[] move = new int[]{x, y};
+                
+                if (inActiveBoard(move) && board[x][y] == SPACE) {
+                    // Make a copy of the current board
+                    char[][] tempBoard = copyBoard(board);
+                    
+                    // Apply the move to the temporary board
+                    implementMove(move, maxPlayer, tempBoard);
+                    
+                    // Evaluate the board position using the heuristic function
+                    int score = evaluateBoardPosition(tempBoard, maxPlayer);
+                    
+                    // Update the best move if the current move has a higher score
+                    if (score > bestScore) {
+                        bestScore = score;
+                        bestMove = move;
+                    }
+                }
+            }
+        }
+        
+        return bestMove;
+    }
+    
+    private int evaluateBoardPosition(char[][] board, char maxPlayer) {
+        // Implement your heuristic function here
+        // Assign scores to moves based on the desirability of the resulting board position
+        // Take into account winning positions, blocking opponent's winning positions, open spaces, etc.
+        
+        // Return the calculated score for the board position
+        return 0;
+    }
 }

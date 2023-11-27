@@ -69,41 +69,7 @@ public class SuperTicTacToe {
 			for (int y=0; y<BOARDSIZE; y++)
 				board[x][y] = SPACE;
 		lastActiveBoardX = lastActiveBoardY = 1;
-		// this code is for testing purposes - you can ignore it
-		/*
-		String[] initStateForTesting = new String[] {
-				"OXXOXOXXO",
-				"XO.O..XOO",
-				"..OXO.X.X",
-				"XOOXXX...",
-				"O.X.....X",
-				"......OXO",
-				"OOO..O.OX",
-				".....O.O.",
-				"X...XOXXX"
-		};
-		initBoardFromStrings(initStateForTesting);
-		*/
-		
-		//board[3][3]=P2;  lastActiveBoardX = lastActiveBoardY = 0;
-		/*
-		// test code for squares
-		board[0][0]=P2;		board[1][0]=P1;		board[2][0]=P2;
-		board[0][1]=P1;		board[1][1]=P1;		board[2][1]=P2;
-		board[0][2]=P2;		board[1][2]=P2;		board[2][2]=P1;
-		board[0][3]=P2;		board[0][6]=P2;
-		board[0][4]=P2;		board[0][7]=P2;
-		board[0][5]=P2;
-		//System.out.println(pointsWon(new int[] {0,0}, board));
-		*/
-		//lastActiveBoardX = lastActiveBoardY = 1;
-		//System.out.println(inActiveBoard(new int[] {3,5}));
-	}
-	
-	/**
-	 * Create a deep copy of the board and return it
-	 * @return copy of game board
-	 */
+
 	public char[][] getBoard()
 	{
 		char[][] boardCopy = new char[BOARDSIZE][BOARDSIZE];
