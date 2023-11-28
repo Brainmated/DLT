@@ -39,13 +39,13 @@ public class SuperTicTacToe {
 	 * @param againstHuman true if the opponent is human
 	 * @param computerFirst is computer the first player
 	 */
-	public SuperTicTacToe(boolean againstHuman, boolean computerFirst) {
+	public SuperTicTacToe(boolean againstHuman, boolean computerFirst)
+	{
 		this.againstHuman = againstHuman;
 		System.out.println("Playing against a human:"+againstHuman);
 		this.computerFirstPlayer = computerFirst;
-		char maxPlayer = computerFirst ? P1 : P2;
 		System.out.println("Computer is: "+(computerFirst?P1:P2));
-		this.myAI = new SuperTicTacToeAI(this, maxPlayer); // Pass this and maxPlayer to the constructor
+		this.myAI = new SuperTicTacToeAI(); //new MMAB();
 		// init
 		boardState = new char[BOARDSIZE][BOARDSIZE];
 		lastActiveBoardX = lastActiveBoardY = (NOSQUARESXY-1)/2; // active board in the middle initially
@@ -69,7 +69,41 @@ public class SuperTicTacToe {
 			for (int y=0; y<BOARDSIZE; y++)
 				board[x][y] = SPACE;
 		lastActiveBoardX = lastActiveBoardY = 1;
-
+		// this code is for testing purposes - you can ignore it
+		/*
+		String[] initStateForTesting = new String[] {
+				"OXXOXOXXO",
+				"XO.O..XOO",
+				"..OXO.X.X",
+				"XOOXXX...",
+				"O.X.....X",
+				"......OXO",
+				"OOO..O.OX",
+				".....O.O.",
+				"X...XOXXX"
+		};
+		initBoardFromStrings(initStateForTesting);
+		*/
+		
+		//board[3][3]=P2;  lastActiveBoardX = lastActiveBoardY = 0;
+		/*
+		// test code for squares
+		board[0][0]=P2;		board[1][0]=P1;		board[2][0]=P2;
+		board[0][1]=P1;		board[1][1]=P1;		board[2][1]=P2;
+		board[0][2]=P2;		board[1][2]=P2;		board[2][2]=P1;
+		board[0][3]=P2;		board[0][6]=P2;
+		board[0][4]=P2;		board[0][7]=P2;
+		board[0][5]=P2;
+		//System.out.println(pointsWon(new int[] {0,0}, board));
+		*/
+		//lastActiveBoardX = lastActiveBoardY = 1;
+		//System.out.println(inActiveBoard(new int[] {3,5}));
+	}
+	
+	/**
+	 * Create a deep copy of the board and return it
+	 * @return copy of game board
+	 */
 	public char[][] getBoard()
 	{
 		char[][] boardCopy = new char[BOARDSIZE][BOARDSIZE];
@@ -168,8 +202,9 @@ public class SuperTicTacToe {
 	 * @param currMove : number of current move (used to generate the file name)
 	 * @param moves : the current move as an array of 2 ints
 	 */
-	private void saveToFile(int currMove, int[] moves) {
-		String name = "D:/Programming in Java/logs/" + currMove + ".txt";  // Specify the directory
+	private void saveToFile(int currMove, int[] moves)
+	{
+		String name = currMove+".txt";
 		PrintWriter out;
 		try {
 			out = new PrintWriter(name);
@@ -188,33 +223,33 @@ public class SuperTicTacToe {
 	 */
 	private int[] readFromFile(int currMove)
 	{
-		String name = "D:/Programming in Java/logs/" + currMove + ".txt";  // Specify the directory
-    int move[] = null;
-    while (move == null)
-    {
-        File inputFile = new File(name);
-        while (!inputFile.exists())
-        {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            }               
-        }
-        try {
-            Scanner in2 = new Scanner(inputFile);
-            move = parseMove(in2.nextLine());
-            in2.close();
-        } catch (FileNotFoundException e) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            }               
-        }
-    }
-    System.out.println("Read move from file: " + moveToString(move));
-    return move;
+		String name = currMove+".txt";
+		int move[] = null;
+		while (move==null)
+		{
+			File inputFile = new File(name);
+			while (!inputFile.exists())
+			{
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}				
+			}
+			try {
+				Scanner in2 = new Scanner(inputFile);
+				move = parseMove(in2.nextLine());
+				in2.close();
+			} catch (FileNotFoundException e) {
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}				
+			}
+		}
+		System.out.println("Read move from file: " + moveToString(move));
+		return move;
 	}
 	
 	/**
