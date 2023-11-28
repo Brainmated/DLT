@@ -45,7 +45,7 @@ public class SuperTicTacToe {
 		this.computerFirstPlayer = computerFirst;
 		char maxPlayer = computerFirst ? P1 : P2;
 		System.out.println("Computer is: "+(computerFirst?P1:P2));
-		this.myAI = new SuperTicTacToeAI(this, maxPlayer); // Pass this and maxPlayer to the constructor
+		this.myAI = new SuperTicTacToeAI(this, maxPlayer);
 		// init
 		boardState = new char[BOARDSIZE][BOARDSIZE];
 		lastActiveBoardX = lastActiveBoardY = (NOSQUARESXY-1)/2; // active board in the middle initially
@@ -69,7 +69,7 @@ public class SuperTicTacToe {
 			for (int y=0; y<BOARDSIZE; y++)
 				board[x][y] = SPACE;
 		lastActiveBoardX = lastActiveBoardY = 1;
-
+	}
 	public char[][] getBoard()
 	{
 		char[][] boardCopy = new char[BOARDSIZE][BOARDSIZE];
