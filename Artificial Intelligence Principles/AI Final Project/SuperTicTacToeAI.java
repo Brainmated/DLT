@@ -1,12 +1,13 @@
-
-/**
- * You should extend (inherit from) this class and implement your AI
- * @author Ioannis A. Vetsikas
- *
- */
 public class SuperTicTacToeAI {
 
-    private int[] calculateHeuristic(SuperTicTacToe gs, char maxPlayer) {
+	private SuperTicTacToe game;
+    private char maxPlayer;
+
+    public SuperTicTacToeAI(SuperTicTacToe game, char maxPlayer) {
+        this.game = game;
+        this.maxPlayer = maxPlayer;
+    }
+    private int[][] calculateHeuristic(SuperTicTacToe gs, char maxPlayer) {
         int[][] heuristic = new int[SuperTicTacToe.BOARDSIZE][SuperTicTacToe.BOARDSIZE];
         char[][] board = gs.getBoard();
         int[] activeboard = gs.getActiveBoard();
@@ -15,18 +16,8 @@ public class SuperTicTacToeAI {
         for (int x=0; x<SuperTicTacToe.BOARDSIZE; x++) {
             for (int y=0; y<SuperTicTacToe.BOARDSIZE; y++) {
                 if (gs.inActiveBoard(new int[] {x,y}) && board[x][y]==SuperTicTacToe.SPACE) {
-                    if (gs.wouldWin(maxPlayer, new int[] {x,y})) {
-                        heuristic[x][y]+=100;
-                    } else if (gs.wouldWin(gs.getOpponent(maxPlayer), new int[] {x,y})) {
-                        heuristic[x][y]+=90;
-                    }
-
                     if (x == SuperTicTacToe.BOARDSIZE/2 && y == SuperTicTacToe.BOARDSIZE/2) {
                         heuristic[x][y] += 10; // Favor the center
-                    }
-
-                    if (gs.wouldEnableMoreBoards(new int[] {x,y})) {
-                        heuristic[x][y] += 5; // Favor moves that give more options for the next move
                     }
                 }
             }
