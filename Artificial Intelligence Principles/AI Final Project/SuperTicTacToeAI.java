@@ -1,3 +1,9 @@
+
+/**
+ * You should extend (inherit from) this class and implement your AI
+ * @author Ioannis A. Vetsikas
+ *
+ */
 public class SuperTicTacToeAI {
 
     private int[] calculateHeuristic(SuperTicTacToe gs, char maxPlayer) {
