@@ -33,7 +33,10 @@ public class SuperTicTacToe {
 	private char boardState[][];
 	private int lastActiveBoardX, lastActiveBoardY; // boards are numbered x,y in [0,NOSQUARESXY-1] // -1,-1 if all are active
 	private BoardComponent boardcomp;
-	
+
+	public void setAI(SuperTicTacToeAI ai) {
+        this.myAI = ai;
+    }
 	/**
 	 * Constructor
 	 * @param againstHuman true if the opponent is human
@@ -45,7 +48,7 @@ public class SuperTicTacToe {
 		System.out.println("Playing against a human:"+againstHuman);
 		this.computerFirstPlayer = computerFirst;
 		System.out.println("Computer is: "+(computerFirst?P1:P2));
-		this.myAI = new SuperTicTacToeAI(this, maxPlayer);
+		this.myAI = new greedy(this);
 		// init
 		boardState = new char[BOARDSIZE][BOARDSIZE];
 		lastActiveBoardX = lastActiveBoardY = (NOSQUARESXY-1)/2; // active board in the middle initially
@@ -69,7 +72,7 @@ public class SuperTicTacToe {
 			for (int y=0; y<BOARDSIZE; y++)
 				board[x][y] = SPACE;
 		lastActiveBoardX = lastActiveBoardY = 1;
-
+	}
 	public char[][] getBoard()
 	{
 		char[][] boardCopy = new char[BOARDSIZE][BOARDSIZE];
@@ -357,7 +360,7 @@ public class SuperTicTacToe {
 		x2=x1+SQUARESIZE-1;
 		y1=squareCoords[1]*SQUARESIZE;
 		y2=y1+SQUARESIZE-1;
-		
+	    
 		// compute if board has a whole row
 		for (int y=y1; y<=y2; y++)
 		{
@@ -490,8 +493,14 @@ public class SuperTicTacToe {
 	public boolean checkMoveValidity(int[] move, char c, char[][] board) {
 		int x = move[0];
 		int y = move[1];
-		if (board[x][y]!=SPACE) return false; // space is not empty
-		if (!inActiveBoard(move)) return false; // not in active board 
+		if (board[x][y]!=SPACE) {
+
+			return false; // space is not empty
+		}
+		if (!inActiveBoard(move)) {
+
+			return false; // not in active board 
+		}
 		return true;
 	}
 	
@@ -503,7 +512,7 @@ public class SuperTicTacToe {
 	 * @param c who's turn it is to play
 	 * @param board the board of all the pieces 
 	 */
-	private void implementMove(int[] move, char c, char[][] board) {
+	public void implementMove(int[] move, char c, char[][] board) {
 		int x = move[0];
 		int y = move[1];
 		if (board[x][y]!=SPACE)
@@ -716,6 +725,7 @@ public class SuperTicTacToe {
 		}	
 
 		SuperTicTacToe player;
+		SuperTicTacToeAI myAI;
 		switch (choice)
 		{
 			case 0:	// only reachable if given v or V as a command line argument
@@ -731,9 +741,11 @@ public class SuperTicTacToe {
 				player.playGame();
 				break;
 			case 3:
-				player = new SuperTicTacToe(false, true);
-				player.playGame();
-				break;
+				player = new SuperTicTacToe(false, true); // AI player with black pieces
+		        myAI = new greedy(player); // Instantiate GreedyAI
+		        player.setAI(myAI); // Set AI for the player
+		        player.playGame();
+		        break;
 			case 4:
 				player = new SuperTicTacToe(false, false);
 				player.playGame();
