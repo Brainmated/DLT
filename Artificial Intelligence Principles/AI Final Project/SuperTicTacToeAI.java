@@ -19,19 +19,24 @@ public class SuperTicTacToeAI {
 		char[][] board = gs.getBoard();
 		@SuppressWarnings("unused")
 		int[] activeboard = gs.getActiveBoard();
-		/*
-		for (int y=0; y<SuperTicTacToe.BOARDSIZE; y++)
-		{
-			for (int x=0; x<SuperTicTacToe.BOARDSIZE; x++)
-				System.out.print(board[x][y]);
-			System.out.println();
-		}
-		System.out.println(Arrays.toString(activeboard));
-		*/
+
 		for (int x=0; x<SuperTicTacToe.BOARDSIZE; x++)
 			for (int y=0; y<SuperTicTacToe.BOARDSIZE; y++)
 				if (gs.inActiveBoard(new int[] {x,y}) && board[x][y]==SuperTicTacToe.SPACE)
 					return new int[]{x,y};
 		return new int[]{0,0}; // should not reach here
+	}
+	
+	/**
+	 * Creates a deep copy of the game board.
+	 * @param original The original board to copy.
+	 * @return A new copy of the board.
+	 */
+	public char[][] copyBoard(char[][] original) {
+	    char[][] copy = new char[original.length][];
+	    for (int i = 0; i < original.length; i++) {
+	        copy[i] = original[i].clone();
+	    }
+	    return copy;
 	}
 }
