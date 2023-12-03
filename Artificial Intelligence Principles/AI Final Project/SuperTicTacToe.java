@@ -741,9 +741,9 @@ public class SuperTicTacToe {
 				player.playGame();
 				break;
 			case 3:
-				player = new SuperTicTacToe(false, true); // AI player with black pieces
-		        myAI = new greedy(player); // Instantiate GreedyAI
-		        player.setAI(myAI); // Set AI for the player
+				player = new SuperTicTacToe(false, true); //aI player with black pieces
+		        myAI = new greedy(player); //instantiate GreedyAI
+		        player.setAI(myAI); //set AI for the player
 		        player.playGame();
 		        break;
 			case 4:
